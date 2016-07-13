@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		border: 1px solid #000;
+		margin: 2px;
+		float: left;
+	}
+</style>
+<body>
+	<input type="button" value="绿色" _color="green"/>
+	<input type="button" value="红色" _color="red"/>
+	<input type="button" value="黄色" _color="yellow"/>
+	<input type="button" value="去红"/>
+	
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+<script>
+//attr 获取到该元素的自定义属性
+	var color = '';
+	$('input').on('click',function(){
+		color = $(this).attr('_color');
+		// console.log($(this).attr('_color'));
+		// console.log(color);
+		if($(this).attr('value') == '去红'){
+			alert(1);
+			$('div[style *= "background: red"]').css('background','');
+		}
+	});
+
+	// console.log($('div'));
+	$('div').on('click',function(){
+		$(this).css('background',color);
+	});
+</script>
+</html>

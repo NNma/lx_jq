@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">这注定了是一场资金密集型的战争，而上市，就是筹集资金的最低成本方式。</div>
+	<input type="text" name="" id="text" value="" />
+	<input type="button" name="" id="btn" value="点击" />
+</body>
+<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+<script>
+	var box = $('#box').html();
+	$('#btn').on('click',function(){
+		var Text = $('#text').val();
+		var arr = [];
+
+		if(box.indexOf(Text) != -1){
+			var index = box.indexOf(Text);
+			arr = box.split(Text);
+			var str = arr.join('<span>'+Text+'</span>');
+			$('#box').html(str);
+			$('#text').val('');
+			$('span').css('background','pink');
+		}
+	});
+</script>
+</html>
