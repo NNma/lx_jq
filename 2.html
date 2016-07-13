@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+.active{
+	background: pink;
+}
+div{
+	width:100px;
+	height: 100px;
+	border: 1px solid yellowgreen;
+	display: none;
+}
+</style>
+<body>
+	<input type="button" name="" id="" value="按钮一" class="active" />
+	<input type="button" name="" id="" value="按钮二" />
+	<input type="button" name="" id="" value="按钮三" />
+	<div style="display:block;">11111111111</div>
+	<div>2222222222</div>
+	<div>333333333333</div>
+</body>
+<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+<script>
+	$('input').on('click',function(){
+		$('input').removeClass('active');//清除所有input的class
+		$(this).addClass('active');//给当前input加active
+		$('div').hide();//隐藏所有div---大清洗
+		$('div').eq($(this).index('input')).show();//显示当前按钮对应的div
+		console.log($(this).index('input'));
+		/*
+			eq(index); 获取第N个元素
+			index();  搜索匹配的元素，并返回相应元素的索引值，从0开始计数。
+		*/
+
+	});
+</script>
+</html>
